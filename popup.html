@@ -7,8 +7,22 @@
   </head>
   <body>
     <div id="container">
-      <h1 id="main-title">Audio Meters</h1>
-      <button id="startBtn">Start Audio Meters</button>
+      <div id="header-row">
+        <div id="title">Audio Meters</div>
+        <button id="powerBtn" class="power-on" title="Toggle Audio Meters">
+          <svg width="28" height="28" viewBox="0 0 28 28">
+            <circle
+              cx="14"
+              cy="14"
+              r="12"
+              fill="#232526"
+              stroke="#7ed6df"
+              stroke-width="2"
+            />
+            <rect x="13" y="7" width="2" height="10" rx="1" fill="#7ed6df" />
+          </svg>
+        </button>
+      </div>
       <div id="meters-row">
         <div id="spectrum-container">
           <canvas id="spectrum" width="400" height="140"></canvas>

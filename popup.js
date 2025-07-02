@@ -7,25 +7,18 @@ const SPECTRUM_BINS = 300; // Show only first 300 bins for 0-18kHz
 const VOL_DB_MIN = -48;
 const VOL_DB_MAX = 0;
 
-const startBtn = document.getElementById("startBtn");
-startBtn.addEventListener("click", function () {
+const powerBtn = document.getElementById("powerBtn");
+let metersOn = true;
+
+function startMeters() {
   chrome.runtime.sendMessage(
     { action: "capture_tab_audio" },
     function (response) {
       if (response && response.success) {
-        chrome.runtime.sendMessage(
-          { action: "start_analysis" },
-          function (resp) {
-            if (resp && resp.success) {
-              startBtn.style.display = "none";
-            } else {
-              alert(
-                "Failed to start analysis: " +
-                  (resp && resp.error ? resp.error : "Unknown error")
-              );
-            }
-          }
-        );
+        chrome.runtime.sendMessage({ action: "start_analysis" });
+        powerBtn.classList.add("power-on");
+        powerBtn.classList.remove("power-off");
+        metersOn = true;
       } else {
         alert(
           "Failed to capture tab audio: " +
@@ -36,6 +29,25 @@ startBtn.addEventListener("click", function () {
       }
     }
   );
+}
+
+function stopMeters() {
+  chrome.runtime.sendMessage({ action: "stop_analysis" });
+  chrome.runtime.sendMessage({ action: "release_tab_audio" });
+  powerBtn.classList.remove("power-on");
+  powerBtn.classList.add("power-off");
+  metersOn = false;
+  // Optionally clear meters
+  spectrumCtx.clearRect(0, 0, spectrumCanvas.width, spectrumCanvas.height);
+  volumeCtx.clearRect(0, 0, volumeCanvas.width, volumeCanvas.height);
+}
+
+powerBtn.addEventListener("click", function () {
+  if (metersOn) {
+    stopMeters();
+  } else {
+    startMeters();
+  }
 });
 
 function drawSpectrum(spectrum) {
@@ -77,13 +89,15 @@ function drawVolume(volume) {
 }
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.action === "audio_data") {
+  if (metersOn && message.action === "audio_data") {
     drawSpectrum(message.spectrum);
     drawVolume(message.volume);
   }
 });
 
 window.addEventListener("unload", function () {
-  chrome.runtime.sendMessage({ action: "stop_analysis" });
-  chrome.runtime.sendMessage({ action: "release_tab_audio" });
+  stopMeters();
 });
+
+// Start meters by default when popup opens
+startMeters();

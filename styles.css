@@ -20,32 +20,54 @@ body {
   margin: 36px 0;
   min-width: 500px;
 }
-#main-title {
+#header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 18px;
+}
+#title {
+  flex: 1;
   font-size: 2.1rem;
   font-weight: 800;
   color: #7ed6df;
-  margin-bottom: 24px;
   letter-spacing: 1.5px;
   text-shadow: 0 2px 8px #000a;
+  text-align: right;
+  align-self: center;
+  margin-right: 18px;
 }
-#startBtn {
-  margin-bottom: 28px;
-  padding: 12px 36px;
-  font-size: 19px;
-  background: linear-gradient(90deg, #7ed6df 0%, #70a1ff 100%);
-  color: #232526;
+#powerBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   border: none;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #181a1b 0%, #232526 100%);
+  box-shadow: 0 2px 8px 0 rgba(46, 204, 113, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-weight: 700;
-  box-shadow: 0 2px 12px 0 rgba(46, 204, 113, 0.1);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  letter-spacing: 1.2px;
+  transition: background 0.2s, box-shadow 0.2s;
+  outline: none;
+  padding: 0;
 }
-#startBtn:hover {
-  background: linear-gradient(90deg, #70a1ff 0%, #7ed6df 100%);
-  color: #fff;
-  box-shadow: 0 4px 18px 0 rgba(46, 204, 113, 0.18);
+#powerBtn svg {
+  display: block;
+}
+#powerBtn.power-on {
+  box-shadow: 0 0 0 2px #7ed6df, 0 2px 8px 0 rgba(46, 204, 113, 0.1);
+  background: linear-gradient(135deg, #232526 0%, #7ed6df 100%);
+}
+#powerBtn.power-off {
+  box-shadow: 0 0 0 2px #636e72, 0 2px 8px 0 rgba(46, 204, 113, 0.1);
+  background: linear-gradient(135deg, #232526 0%, #636e72 100%);
+  opacity: 0.7;
+}
+#powerBtn:active {
+  background: #70a1ff;
 }
 #meters-row {
   display: flex;
@@ -102,7 +124,7 @@ body {
   margin-right: 10px;
   margin-left: 16px;
   font-size: 16px;
-  color: #fdcb6e;
+  color: #00b894;
   font-weight: 700;
   letter-spacing: 1.2px;
   text-shadow: 0 1px 4px #000a;
