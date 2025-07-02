@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Audio Meters</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="main-title">Audio Meters</h1>
+      <button id="startBtn">Start Audio Meters</button>
+      <div id="meters-row">
+        <div id="spectrum-container">
+          <canvas id="spectrum" width="400" height="140"></canvas>
+          <div id="spectrum-labels">
+            <span>0 Hz</span>
+            <span>18 kHz</span>
+          </div>
+        </div>
+        <div id="volume-container">
+          <canvas id="volume" width="48" height="140"></canvas>
+          <div id="volume-labels">
+            <span class="vol-label-top">0</span>
+            <span class="vol-label-bottom">-48</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

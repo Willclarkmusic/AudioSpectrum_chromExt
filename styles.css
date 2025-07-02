@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f3f3f3;
+  min-width: 500px;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 50px 10px 50px;
+  background: rgba(30, 32, 34, 0.98);
+  border-radius: 10px;
+  box-shadow: 0 8px 36px 0 rgba(0, 0, 0, 0.32);
+  margin: 36px 0;
+  min-width: 500px;
+}
+#main-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #7ed6df;
+  margin-bottom: 24px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 8px #000a;
+}
+#startBtn {
+  margin-bottom: 28px;
+  padding: 12px 36px;
+  font-size: 19px;
+  background: linear-gradient(90deg, #7ed6df 0%, #70a1ff 100%);
+  color: #232526;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 2px 12px 0 rgba(46, 204, 113, 0.1);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  letter-spacing: 1.2px;
+}
+#startBtn:hover {
+  background: linear-gradient(90deg, #70a1ff 0%, #7ed6df 100%);
+  color: #fff;
+  box-shadow: 0 4px 18px 0 rgba(46, 204, 113, 0.18);
+}
+#meters-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  gap: 48px;
+}
+#spectrum-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#spectrum {
+  background: linear-gradient(180deg, #181a1b 0%, #232526 100%);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.22);
+  border: 2px solid #444;
+}
+#spectrum-labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #00b894;
+  margin-top: 8px;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  text-shadow: 0 1px 4px #000a;
+}
+#volume-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+#volume {
+  background: linear-gradient(180deg, #181a1b 0%, #232526 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.22);
+  border: 2px solid #444;
+}
+#volume-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 140px;
+  margin-right: 10px;
+  margin-left: 16px;
+  font-size: 16px;
+  color: #fdcb6e;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 4px #000a;
+}
+.vol-label-top {
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+.vol-label-bottom {
+  align-self: flex-end;
+  margin-top: 4px;
+}

@@ -1,0 +1,18 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Robot body -->
+  <rect x="32" y="48" width="64" height="56" rx="16" fill="#232526" stroke="#7ed6df" stroke-width="4"/>
+  <!-- Robot face -->
+  <rect x="44" y="60" width="40" height="35" rx="8" fill="#f3f3f3"/>
+  <!-- Eyes -->
+  <circle cx="56" cy="74" r="4" fill="#232526"/>
+  <circle cx="72" cy="74" r="4" fill="#232526"/>
+  <!-- Smile -->
+  <path d="M56 84 Q64 90 72 84" stroke="#232526" stroke-width="2" fill="none"/>
+  <!-- Antenna stem (music note stem) -->
+  <rect x="62" y="28" width="4" height="24" rx="2" fill="#70a1ff"/>
+  <!-- Antenna ball -->
+  <circle cx="64" cy="28" r="6" fill="#7ed6df" stroke="#232526" stroke-width="2"/>
+  <!-- Robot ears -->
+  <rect x="24" y="64" width="8" height="24" rx="4" fill="#7ed6df"/>
+  <rect x="96" y="64" width="8" height="24" rx="4" fill="#7ed6df"/>
+</svg> 
